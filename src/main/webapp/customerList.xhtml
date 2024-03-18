@@ -17,20 +17,7 @@
                          rows="10"
                          rowsPerPageTemplate="2,4,8,10"
                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                         filteredValue="#{customerBean.filteredCustomers1}"
-                         globalFilterOnly="#{customerBean.globalFilterOnly}">
-
-                <f:facet name="header">
-                    <div class="flex align-items-center justify-content-between">
-                        <span>List of Customers</span>
-                        <div>
-                            <p:inputText id="globalFilter" onkeyup="PF('customersTable').filter()" style="width:10rem" placeholder="Filtrer" />
-                            <p:commandButton value="Entrer" update="@form" styleClass="ml-2"
-                                             action="#{customerBean.toggleGlobalFilter()}"/>
-                        </div>
-                    </div>
-                </f:facet>
-
+                         >
                 <p:column sortBy="#{item.customerId}">
                     <f:facet name="header">
                         <h:outputText value="Id"/>
@@ -54,7 +41,7 @@
 
                 <p:column sortBy="#{item.discount.code}">
                     <f:facet name="header">
-                        <h:outputText value="Discount Code"/>
+                        <h:outputText value="Discount"/>
                     </f:facet>
                     <h:outputText value="#{item.discount.code} : #{item.discount.rate} %" />
                 </p:column>
