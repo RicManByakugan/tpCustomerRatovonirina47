@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package service;
+package mg.eric.tpcustomerratovonirina47.service;
 
 import java.util.List;
 import jakarta.enterprise.context.RequestScoped;

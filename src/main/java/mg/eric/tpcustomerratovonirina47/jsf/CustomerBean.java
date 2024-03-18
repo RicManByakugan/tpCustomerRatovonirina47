@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import mg.eric.tpcustomerratovonirina47.entity.Customer;
-import service.CustomerManager;
+import mg.eric.tpcustomerratovonirina47.service.CustomerManager;
 
 /**
  *
