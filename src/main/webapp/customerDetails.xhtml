@@ -37,17 +37,30 @@
                     <h:outputLabel value="CreditLimit:" for="creditLimit" />
                     <h:inputText id="creditLimit" value="#{customerDetailsBean.customer.creditLimit}" title="CreditLimit" />
                     <h:outputLabel value="Discount:" for="discount" />
-                    <h:selectOneMenu id="discount" value="#{customerDetailsBean.customer.discount}" title="Discount" required="true" requiredMessage="The Discount field is required.">
-                        <f:selectItems value="#{customerDetailsBean.discounts}" var="discount" itemValue="#{discount.code}" itemLabel="#{discount.code}" />
+
+
+                    <h:selectOneMenu 
+                        id="discount" value="#{customerDetailsBean.customer.discount}" 
+                        title="Discount" required="true" requiredMessage="The Discount field is required."
+                        converter="discountConverter">
+                        <f:selectItems value="#{customerDetailsBean.discounts}"
+                                       var="discount"
+                                       itemLabel="#{discount.code} (#{discount.rate} %)" 
+                                       itemValue="#{discount}"/>
                     </h:selectOneMenu>
 
-                    <h:selectOneMenu id="discountAscending" value="#{customerDetailsBean.customer.discount}" title="Discount (Ascending)" required="true" requiredMessage="The Discount field is required.">
-                        <f:selectItems value="#{customerDetailsBean.getDiscountsSortedAscending()}" var="discount" itemValue="#{discount}" itemLabel="#{discount.code}"/>
-                    </h:selectOneMenu>
+                    <h:button id="back" value="Revenir à la liste" outcome="customerList"/>
+                    <h:commandButton id="update" value="Enregistrer" action="#{customerDetailsBean.update}"/>
 
-                    <h:selectOneMenu id="discountDescending" value="#{customerDetailsBean.customer.discount}" title="Discount (Descending)" required="true" requiredMessage="The Discount field is required.">
-                        <f:selectItems value="#{customerDetailsBean.getDiscountsSortedDescending()}" var="discount" itemValue="#{discount}" itemLabel="#{discount.code}"/>
-                    </h:selectOneMenu>
+                    <h:messages/>
+
+<!--<h:selectOneMenu id="discountAscending" value="#{customerDetailsBean.customer.discount}" title="Discount (Ascending)" required="true" requiredMessage="The Discount field is required.">
+    <f:selectItems value="#{customerDetailsBean.getDiscountsSortedAscending()}" var="discount" itemValue="#{discount}" itemLabel="#{discount.code}"/>
+</h:selectOneMenu>
+
+<h:selectOneMenu id="discountDescending" value="#{customerDetailsBean.customer.discount}" title="Discount (Descending)" required="true" requiredMessage="The Discount field is required.">
+    <f:selectItems value="#{customerDetailsBean.getDiscountsSortedDescending()}" var="discount" itemValue="#{discount}" itemLabel="#{discount.code}"/>
+</h:selectOneMenu>-->
                 </h:panelGrid>
             </h:form>
         </f:view>
