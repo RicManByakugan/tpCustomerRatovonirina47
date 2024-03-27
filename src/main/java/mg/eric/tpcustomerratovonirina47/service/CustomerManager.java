@@ -14,26 +14,32 @@ import mg.eric.tpcustomerratovonirina47.entity.Customer;
 
 /**
  * Façade pour gérer les Customers.
+ *
  * @author Ratovonirina
  */
 @RequestScoped
 public class CustomerManager {
+
     @PersistenceContext(unitName = "customerPU")
     private EntityManager em;
 
     public List<Customer> getAllCustomers() {
         Query query = em.createNamedQuery("Customer.findAll");
-       return query.getResultList();
+        return query.getResultList();
     }
 
     @Transactional
     public Customer update(Customer customer) {
-       return em.merge(customer);
+        return em.merge(customer);
     }
 
     @Transactional
     public void persist(Customer customer) {
-       em.persist(customer);
+        em.persist(customer);
     }
-    
+
+    public Customer findById(int idCustomer) {
+        return em.find(Customer.class, idCustomer);
+    }
+
 }
