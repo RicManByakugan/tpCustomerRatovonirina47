@@ -56,6 +56,22 @@ public class CustomerDetailsBean implements Serializable {
     public List<Discount> getDiscounts() {
         return discountManager.getAllDiscounts();
     }
+    
+    /**
+     * Retourne la liste des Discount ordre croissant.
+     */
+    public List<Discount> getDiscountsSortedAscending() {
+        return discountManager.getDiscountsSortedAscending();
+    }
+    
+    /**
+     * Retourne la liste de tous les Discount decroissant.
+     */
+    public List<Discount> getDiscountsSortedDescending() {
+        return discountManager.getDiscountsSortedDescending();
+    }
+    
+    
 
     /**
      * Action handler - met à jour dans la base de données les données du client

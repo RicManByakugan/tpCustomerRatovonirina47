@@ -29,4 +29,14 @@ public class DiscountManager {
     public Discount findById(String code) {
         return em.find(Discount.class, code);
     }
+
+    public List<Discount> getDiscountsSortedAscending() {
+        Query query = em.createNamedQuery("Discount.findAllAscending");
+        return query.getResultList();
+    }
+
+    public List<Discount> getDiscountsSortedDescending() {
+        Query query = em.createNamedQuery("Discount.findAllDescending");
+        return query.getResultList();
+    }
 }
